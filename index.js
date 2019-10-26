@@ -1,8 +1,8 @@
 class jogos{
     constructor(qtdDezenas, totalJogos){
         dezenasValidas = [6,7,8,9,10]
-        public.setdezenas(qtdDezenas)
-        public.settotalJogos(totalJogos)
+        this.public().setdezenas(qtdDezenas)
+        this.public().settotalJogos(totalJogos)
     }
     _private(){
         var dezenas
@@ -16,7 +16,7 @@ class jogos{
         this.getresultado = function() { 
             return resultado;
         }
-        function getArray(qtdDezenas) {
+        this.getArray = function(qtdDezenas) {
             var result = []
             while (result.length < qtdDezenas) {
                 let number = Math.floor(Math.random() * 6) + 1  
@@ -37,7 +37,7 @@ class jogos{
     }
 
     public(){
-        getTotal = (()=>{
+        this.getTotal = (()=>{
             var total = gettotalJogos()
             var result = []
             for (let i = 0; i < total; i++) {
@@ -46,19 +46,19 @@ class jogos{
             }
             this._private().jogos = result
         })
-        setResult = (()=>{
+        this.setResult = (()=>{
             result = this._private().getArray(6);
         })
-        getdezenas = (()=>{
+        this.getdezenas = (()=>{
             return dezenas;
         })
                 
-        gettotalJogos = (()=>{
+        this.gettotalJogos = (()=>{
             return totalJogos;
         })
         
         
-        setdezenas = ((value)=>{
+        this.setdezenas = ((value)=>{
             if(dezenasValidas.includes(value)){
                 this.dezenas = value;
             }else{
@@ -66,11 +66,11 @@ class jogos{
                 
             }
         })
-        settotalJogos = ((value)=>{
+        this.settotalJogos = ((value)=>{
             this.totalJogos = value;
         })
 
-        confere = (()=>{
+        this.confere = (()=>{
             var jogos = _private.getjogos()
             var result = _private.getresultado()
             var response = "<!DOCTYPE html><html><body><h2>RESULTADO DA LOTERIA</h2><table style='width:100%'><tr><th>Jogo</th><th>Desenas Sorteadas</th></tr><tr><td>"
